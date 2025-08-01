@@ -1,3 +1,5 @@
+#QUESTION
+
 """
 Task 6: Electronics Store Nested Cart
 Three friends, Tobi, Lami, and Chinedu, visit an electronics store together. 
@@ -25,6 +27,9 @@ At checkout:
 """
 
 
+# SOLUTION
+
+
 cart = {
     "phones": {},
     "laptops": {},
@@ -35,17 +40,23 @@ tobi = cart
 lami = cart
 chinedu = cart
 
-tobi["phones"].update({"iPhone": "750000"})
-lami["laptops"].update({"Dell XPS": '1200000'})
-chinedu['accessories'].update({"Earbuds": '50 000'})
+# Add items
+tobi["phones"].update({"iPhone": 750000})
+lami["laptops"].update({"Dell XPS": 1200000})
+chinedu["accessories"].update({"Earbuds": 50000})
 
-print(cart)
-tobi.pop("phones")
+# Tobi removes only iPhone, not whole 'phones'
+tobi["phones"].pop("iPhone")
 
-lami["accessories"].update({"Gaming Mouse": '35 000'})
+# Lami adds another accessory
+lami["accessories"].update({"Gaming Mouse": 35000})
 
-print("\n snapshot of the nested cart is taken as the order summary for the store record: ", cart)
+# Take snapshot
+order_summary = cart.copy()
 
+# Reset cart
 cart.clear()
 
-print("\n The shared smart cart is then completely emptied to reset for the next customers: ", cart)
+print("Snapshot:", order_summary)
+print("Cart after clearing:", cart)
+
